@@ -53,6 +53,9 @@ vlans:
 - id: 10
   name: Ten
   tenant: MY_FABRIC
+- id: 15
+  name: Fifteen
+  tenant: MY_FABRIC
 - id: 20
   name: Twenty
   tenant: MY_FABRIC
@@ -79,6 +82,15 @@ vlan_interfaces:
   ip_address: 10.10.10.3/24
   ip_virtual_router_addresses:
   - 10.10.10.1
+- name: Vlan15
+  tenant: MY_FABRIC
+  tags:
+  - Web
+  description: Fifteen
+  shutdown: false
+  ip_address: 10.15.15.3/24
+  ip_virtual_router_addresses:
+  - 10.15.15.1
 - name: Vlan20
   tenant: MY_FABRIC
   tags:
@@ -102,7 +114,7 @@ port_channel_interfaces:
   type: switched
   shutdown: false
   mode: trunk
-  vlans: '10'
+  vlans: 10,15
   mlag: 2
 - name: Port-Channel4
   description: RACK2_Po2
